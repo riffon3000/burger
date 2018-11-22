@@ -36,14 +36,14 @@ function objToSql(ob) {
 
 // Object for SQL statement functions.
 const orm = {
-    all: (tableInput, cb) => {
+    selectAll: (tableInput, cb) => {
         let queryString = 'SELECT * FROM ' + tableInput + ';';
         connection.query(queryString, (err, result) => {
             if (err) throw err;
             cb(result);
         });
     },
-    create: (table, cols, vals, cb) => {
+    insertOne: (table, cols, vals, cb) => {
         let queryString = 'INSERT INTO ' + table;
 
         queryString += ' (';
@@ -61,7 +61,7 @@ const orm = {
         });
     },
     // Example objColVals {burger_name: Bruger, devoured: true}
-    update: (table, objColVals, condition, cb) => {
+    updateOne: (table, objColVals, condition, cb) => {
         let queryString = 'UPDATE ' + table;
 
         queryString += ' SET ';

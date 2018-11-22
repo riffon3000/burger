@@ -23,11 +23,11 @@ function objToSql(ob) {
         if (Object.hasOwnProperty.call(ob, key)) {
             // if string with spaces, add quotations (Burger => "Burger")
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
-                value = `'${value}'`;
+                value = "'" + value + "'";
             }
             // e.g. {burger_name: 'Burger'} => ["burger_name='Burger'"]
             // e.g. {devoured: true} => ["devoured=true"]
-            arr.push(`${key}=${value}`);
+            arr.push(key + " = " + value);
         }
     }
 

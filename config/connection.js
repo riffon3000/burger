@@ -1,16 +1,16 @@
 // Set up MySQL connection.
-const mysql = require('mysql');
+const mysql = require("mysql");
 
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: "localhost",
     port: 3306,
-    user: 'root',
-    password: 'root',
-    database: 'burgers_db'
+    user: "root",
+    password: "root",
+    database: "burgers_db"
 });
 
 // Make connection.
-connection.connect((err) => {
+connection.connect(function (err) {
     if (err) {
         console.error(`error connecting: ${err.stack}`);
         return;
